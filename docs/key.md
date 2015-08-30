@@ -1,7 +1,7 @@
 ##BASIC OPERATIONS
 ###List
 
-all keys:                           `sudo salt-key -L`
+all keys:                           ```sudo salt-key -L```
 
 all accepted keys:                  `sudo salt-key -l acc`
 
