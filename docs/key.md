@@ -8,11 +8,15 @@ all accepted keys:                  `sudo salt-key -l acc`
 all unaccepted keys:                `sudo salt-key -l un`
 
 ###Accept
+
 all pending keys:                   `sudo salt-key -A`
+
 specific key(s)[Globs supported]:   `sudo salt-key -l <minion_id>`
 
 ###Delete
+
 all keys:                           `sudo salt-key -D`
+
 specific key(s)[Globs supported]:   `sudo salt-key -d <minion_id>`
 
 
