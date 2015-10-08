@@ -1,0 +1,49 @@
+STEPS
+
+Raise vm for salt master less
+
+vagrant up
+
+
+Salt Installation
+
+curl -L https://bootstrap.saltstack.com -o install_salt.sh
+sudo sh install_salt.sh -P
+sudo service salt-minion stop
+
+
+Minion Config[optional]
+
+Copy the contents of file 'minion' in /etc/salt/minion
+
+
+Create file_roots
+
+sudo mkdir -p /srv/salt
+
+sudo chmod 777 /srv/salt 
+
+
+Top File
+
+copy contents of top.sls in /srv/salt/top.sls
+
+
+State
+
+Copy contents of webserver.sls in /srv/salt/webserver.sls
+
+Salt Call
+
+sudo salt-call --local state.highstate   [If minion config is not done]
+sudo salt-call state.highstate           [Otherwise]
+
+
+
+Explanation
+
+The minion first examines the top.sls file and determines that it is a part of
+the group matched by * glob and that the webserver SLS should be applied.
+
+It then examines the webserver.sls file and finds the nginx state, which
+installs the Nginx package.

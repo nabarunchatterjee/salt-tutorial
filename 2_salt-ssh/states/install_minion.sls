@@ -4,12 +4,10 @@ salt-minion:
     - ppa: saltstack/salt
     - require_in:
       - pkg: salt-minion
-  pkg:
-    - installed
+  pkg.installed:
+    - version: 2015.5.3+ds-1trusty1
   service:
     - running
-    - enable: True
-    - restart: True
     - watch:
       - file: /etc/salt/minion
       - pkg: salt-minion
@@ -20,3 +18,4 @@ salt-minion:
     - user: root
     - group: root
     - mode: 644
+

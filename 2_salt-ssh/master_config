@@ -1,0 +1,4 @@
+interface: 192.168.33.100
+file_roots:
+  base:
+    - /srv/salt/states/base

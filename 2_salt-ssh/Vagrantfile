@@ -1,0 +1,48 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Set the Ansible configuration environment variable
+ENV['ANSIBLE_CONFIG'] = "/etc/ansible/ansible.cfg"
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    config.vm.box = "ubuntu14.04"
+    config.ssh.forward_agent = true
+    config.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "1024"]
+    end
+
+   config.vm.network :public_network
+
+
+    config.vm.define "master" do |master|
+        master.vm.hostname = "salt-master"
+        master.vm.network :private_network, ip: "192.168.33.100"
+        master.vm.provision "shell", path: "master_provision.sh" 
+        master.vm.provision :file, source: 'master_config', destination: '/etc/salt/master'
+        master.vm.provision :file, source: 'roster', destination: '/etc/salt/roster'
+        master.vm.provision "shell", inline: "sudo service salt-master restart" 
+        master.vm.synced_folder "states", "/srv/salt/states/base"
+    end
+
+    config.vm.define "minion1" do |minion1|
+        minion1.vm.hostname = "minion1"
+        minion1.vm.network :private_network, ip: "192.168.33.101"
+        minion1.vm.provision "shell", path: "minion_provision.sh" 
+        minion1.vm.provision :file, source: 'minion_config', destination: '/etc/salt/minion'
+        minion1.vm.provision "shell", inline: "sudo service salt-minion restart" 
+    end
+
+    config.vm.define "minion2" do |minion2|
+        minion2.vm.hostname = "minion2"
+        minion2.vm.network :private_network, ip: "192.168.33.102"
+    end
+
+    config.vm.define "minion3" do |minion3|
+        minion3.vm.hostname = "minion3"
+        minion3.vm.network :private_network, ip: "192.168.33.103"
+    end
+end

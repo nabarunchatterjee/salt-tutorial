@@ -1,0 +1,41 @@
+INSTALLATION
+
+sudo apt-get --yes -q install python-software-properties
+sudo add-apt-repository ppa:saltstack/salt
+sudo apt-get --yes -q update
+sudo apt-get --yes -q install salt-minion
+
+
+VERIFICATION
+sudo salt-minion --version
+
+CONFIGURATION
+
+File: /etc/salt/minion
+Contents:
+    master: 192.168.33.11
+
+RESTART   
+sudo service salt-minion restart
+
+
+SALT INSTALLATION FROM MASTER USING SALT_SSH
+
+Write minion details in roster file
+Path: /etc/salt/roster
+Example:
+# Sample salt-ssh config file
+minion1:
+  host: a.b.c.d       # The IP addr or DNS hostname
+  user: vagrant       # Remote executions will be executed as user fred
+  sudo: True          # Whether to sudo to root, not enabled by default
+
+
+Copy salt master's public key in minions authorized keys
+
+Master key path: 
+/etc/salt/pki/master/ssh/salt-ssh.rsa
+
+Run state file for minion installation
+
+sudo salt '*' sate.sls <name of state> 
