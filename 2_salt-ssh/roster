@@ -1,7 +1,5 @@
 # Sample salt-ssh config file
-minion3:
-  host: 192.168.33.103 # The IP addr or DNS hostname
-  user: vagrant         # Remote executions will be executed as user fred
-  passwd: vagrant  # The password to use for login, if omitted, keys are used
-  sudo: True         # Whether to sudo to root, not enabled by default
-
+master:
+  host: 192.168.33.100
+  user: vagrant
+  sudo: True

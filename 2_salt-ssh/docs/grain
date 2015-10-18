@@ -1,0 +1,29 @@
+See all grain items
+sudo salt '*' grains.ls
+
+See all grain values
+sudo salt '*' grains.items
+
+See a specific grain value(s)
+sudo salt '*' grain.get key
+sudo salt '*' grain.item <grain_name> <grain_name1> ....
+
+Set a grain value
+sudo salt '*' grains.setval key val
+sudo salt '*' grains.setvals "{'grain_name':'grain_value', .....}"
+
+Add a value to a grain 
+sudo salt '*' grains.append key val
+
+Remove a grain value
+salt '*' grains.remove key val
+
+Set grains from states(using grains.present)
+Example:
+sudo salt 'minion3' state.sls set_grains pillar="{'cluster':'okhla', 'node_type': ['uwsgi','konfilarity']}"
+
+Custom grains
+Custom grains should be placed in a _grains directory located under the
+file_roots specified by the master config file
+Sync custom grains: sudo salt '*' saltutil.sync_grains
+

@@ -1,0 +1,12 @@
+If the autosign_file is specified incoming keys specified in the autosign_file
+will be automatically accepted. Matches will be searched for first by string
+comparison, then by globbing, then by full-string regex matching. This should
+still be considered a less than secure option, due to the fact that trust is
+based on just the requesting minion id.
+
+Master Config option
+autosign_file: /etc/salt/autosign.conf
+
+Using Custom state
+sudo salt-ssh -i 'master' state.sls autosign pillar="{'minion_list' : ['master', 'minion1', 'minion2', 'minion3']}"
+

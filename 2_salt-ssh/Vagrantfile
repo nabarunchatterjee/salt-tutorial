@@ -19,30 +19,37 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
     config.vm.define "master" do |master|
-        master.vm.hostname = "salt-master"
+        master.vm.hostname = "master"
         master.vm.network :private_network, ip: "192.168.33.100"
+        master.vm.network :forwarded_port, guest: 22, host: 2201
         master.vm.provision "shell", path: "master_provision.sh" 
         master.vm.provision :file, source: 'master_config', destination: '/etc/salt/master'
         master.vm.provision :file, source: 'roster', destination: '/etc/salt/roster'
+        master.vm.provision :file, source: 'reactor.conf', destination: '/etc/salt/master.d/reactor.conf'
         master.vm.provision "shell", inline: "sudo service salt-master restart" 
-        master.vm.synced_folder "states", "/srv/salt/states/base"
+        master.vm.synced_folder "states", "/srv/salt/states"
+        master.vm.synced_folder "pillars", "/srv/salt/pillars"
+        master.vm.synced_folder "reactors", "/srv/salt/reactors"
     end
 
     config.vm.define "minion1" do |minion1|
         minion1.vm.hostname = "minion1"
         minion1.vm.network :private_network, ip: "192.168.33.101"
-        minion1.vm.provision "shell", path: "minion_provision.sh" 
-        minion1.vm.provision :file, source: 'minion_config', destination: '/etc/salt/minion'
-        minion1.vm.provision "shell", inline: "sudo service salt-minion restart" 
+        minion1.vm.network :forwarded_port, guest: 22, host: 2202
+#        minion1.vm.provision "shell", path: "minion_provision.sh" 
+#        minion1.vm.provision :file, source: 'minion_config', destination: '/etc/salt/minion'
+#        minion1.vm.provision "shell", inline: "sudo service salt-minion restart" 
     end
 
     config.vm.define "minion2" do |minion2|
         minion2.vm.hostname = "minion2"
         minion2.vm.network :private_network, ip: "192.168.33.102"
+        minion2.vm.network :forwarded_port, guest: 22, host: 2204
     end
 
     config.vm.define "minion3" do |minion3|
         minion3.vm.hostname = "minion3"
         minion3.vm.network :private_network, ip: "192.168.33.103"
+        minion3.vm.network :forwarded_port, guest: 22, host: 2208
     end
 end

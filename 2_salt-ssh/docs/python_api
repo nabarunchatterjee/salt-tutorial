@@ -1,0 +1,32 @@
+SSH Client(salt-ssh)
+    from salt.client.ssh import client
+    salt_ssh = client.SSHClient()
+
+Local Client(salt)
+from salt import clien
+local_client = client.LocalClient()
+
+Add file to Roster
+    result = salt_ssh.cmd('salt-master', 'state.sls', ['add_server_to_roster'] ,kwarg = {"pillar":{"minion_list":["192.168.33.54"]}})
+
+    OR
+
+    result = local_client.cmd('salt-master', 'state.sls', ['add_server_to_roster'] ,kwarg = {"pillar":{"minion_list":["192.168.33.54"]}})
+
+Autosign 
+    salt_ssh.cmd('salt-master', 'state.sls', ['autosign'],kwarg = {"pillar":{"id":"192.168.33.54"}})
+
+    OR
+
+    result = local_client.cmd('salt-master', 'state.sls', ['autosign'], kwarg={"pillar":{"id":"192.168.33.234"}})
+
+Install Minion
+    result = salt_ssh.cmd('192.168.33.55', 'state.sls', ['install_minion'])
+
+Add grains
+
+    result = local_client.cmd('salt-master', 'state.sls', ['set_grains'] ,kwarg = {"pillar":{"node_type":["master", "vagrant"], "cluster": "bangalore"}})
+
+
+
+

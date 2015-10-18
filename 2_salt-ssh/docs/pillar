@@ -1,0 +1,12 @@
+Master Config
+pillar_roots
+
+Ask minions to get respective pillars
+sudo salt '*' saltutil.refresh_pillar
+
+See all pillar values
+sudo salt '*' pillar.items
+
+
+Pillar from command line
+sudo salt '*' state.highstate pillar='{"foo": "bar"}'

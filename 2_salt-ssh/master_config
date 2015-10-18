@@ -2,3 +2,14 @@ interface: 192.168.33.100
 file_roots:
   base:
     - /srv/salt/states/base
+  dev:
+    - /srv/salt/states/dev
+pillar_roots:
+  base:
+    - /srv/salt/pillars/base
+  dev:
+    - /srv/salt/pillars/dev
+log_level: debug
+autosign_file: /etc/salt/autosign.conf
+#top_file_merging_strategy: 'same'
+#default_top: 'base'

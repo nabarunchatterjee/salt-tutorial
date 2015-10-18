@@ -1,0 +1,7 @@
+beacons:
+  inotify:
+{% for salt_file in salt['my_module.get_salt_files']()['files'] %}
+    {{salt_file}}:
+      mask:
+       - close_write
+{% endfor %}
