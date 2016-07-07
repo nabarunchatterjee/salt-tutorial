@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Why Salt}{3}{0}{1}
+\beamer@sectionintoc {2}{Master Minion Mode}{13}{0}{2}
+\beamer@sectionintoc {3}{Main Components}{14}{0}{3}
+\beamer@subsectionintoc {3}{1}{States}{26}{0}{3}
+\beamer@subsectionintoc {3}{2}{Grains}{27}{0}{3}
+\beamer@subsectionintoc {3}{3}{Pillars}{28}{0}{3}
+\beamer@subsectionintoc {3}{4}{Reactors}{29}{0}{3}
+\beamer@subsectionintoc {3}{5}{Beacons}{30}{0}{3}
+\beamer@subsectionintoc {3}{6}{Returners}{31}{0}{3}
+\beamer@sectionintoc {4}{Salt-ssh}{32}{0}{4}
+\beamer@subsectionintoc {4}{1}{Roster}{32}{0}{4}
+\beamer@subsectionintoc {4}{2}{Autosign}{33}{0}{4}
+\beamer@sectionintoc {5}{Demo1 - States,grains,pillars,reactors,returners,modules}{34}{0}{5}
+\beamer@sectionintoc {6}{Demo2 - Salt ssh}{34}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{34}{0}{7}

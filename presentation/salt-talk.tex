@@ -1,0 +1,146 @@
+
+\documentclass[pdf]{beamer}
+\mode<presentation>{}
+%% preamble
+\usetheme{AnnArbor}
+\usecolortheme{beaver}
+\usepackage{graphicx}
+\title{Salt}
+
+\subtitle{Deploy, Monitor, React}
+\author{Nabarun Chatterjee}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\begin{frame}{Overview}
+		\tableofcontents
+	\end{frame}
+
+	\section{Why Salt}
+	\begin{frame}{Salt}
+		\begin{itemize}
+			\item Agent vs Agentless
+			\pause
+			--  Salt has both
+			\begin{itemize}
+				\pause
+				\item Master Minion Mode
+				\pause
+				\item Salt ssh mode
+			\end{itemize}
+			\pause
+			\item It is fast
+			\pause
+			-- Uses ZMQ
+			\pause
+			\item Secure
+			\begin{itemize}
+				\pause
+				\item public keys for authentication with the master daemon
+				\pause
+				\item AES encryption for payload communication
+			\end{itemize}
+			\pause
+			\item Open Source
+		\end{itemize}
+	\end{frame}
+	\section{Master Minion Mode}
+	\begin{frame}
+		\includegraphics[scale=0.4]{gru.jpg}
+	\end{frame}
+
+	\section{Main Components}
+	\begin{frame}{Components}
+		\begin{itemize}
+			\item States
+			\pause
+			\begin{itemize}
+				\item Express the state of a host using small, easy to read, 
+			easy to understand configuration files
+			\end{itemize}
+			\pause
+			\item Grains
+			\pause
+			\begin{itemize}
+				\item Unit information that helps in targeting
+					minions
+			\end{itemize}
+			\pause 
+			\item Pillars
+			\pause
+			\begin{itemize}
+				\item Pillars are tree-like structures of data 
+					defined on the Salt Master and passed through to minions
+			\end{itemize}
+			\pause
+			\item Reactors
+			\pause
+			\begin{itemize}
+				\item Trigger actions in response to an event
+			\end{itemize}
+			\pause
+			\item Beacons
+			\pause
+			\begin{itemize}
+				\item Monitor non-Salt processes
+			\end{itemize}
+			\pause
+			\item Returners
+			\pause
+			\begin{itemize}
+				\item Return Values of commands
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\subsection{States}
+	\begin{frame}{States}
+	\end{frame}
+
+	\subsection{Grains}
+	\begin{frame}{Grains}
+	\end{frame}
+	
+
+	\subsection{Pillars}
+	\begin{frame}{Pillars}
+	\end{frame}
+
+
+	\subsection{Reactors}
+	\begin{frame}{Reactors}
+	\end{frame}
+
+	
+	\subsection{Beacons}
+	\begin{frame}{Beacons}
+	\end{frame}
+
+
+	\subsection{Returners}
+	\begin{frame}{Returners}
+	\end{frame}
+
+
+	\section{Salt-ssh}
+	\subsection{Roster}
+	\begin{frame}{Roster}
+	\end{frame}
+
+	\subsection{Autosign}
+	\begin{frame}{Autosign}
+	\end{frame}
+
+	\section{Demo1 - States,grains,pillars,reactors,returners,modules}
+	\section{Demo2 - Salt ssh}
+	
+	\section{Conclusion}
+	\begin{frame}
+		Thanks for being patient.\\
+		Questions
+	\end{frame}
+\end{document}
