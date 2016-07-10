@@ -1,15 +1,6 @@
 \BOOKMARK [2][]{Outline0.1}{Why Salt}{}% 1
 \BOOKMARK [2][]{Outline0.2}{Master Minion Mode}{}% 2
 \BOOKMARK [2][]{Outline0.3}{Main Components}{}% 3
-\BOOKMARK [3][]{Outline0.3.1.26}{States}{Outline0.3}% 4
-\BOOKMARK [3][]{Outline0.3.2.27}{Grains}{Outline0.3}% 5
-\BOOKMARK [3][]{Outline0.3.3.28}{Pillars}{Outline0.3}% 6
-\BOOKMARK [3][]{Outline0.3.4.29}{Reactors}{Outline0.3}% 7
-\BOOKMARK [3][]{Outline0.3.5.30}{Beacons}{Outline0.3}% 8
-\BOOKMARK [3][]{Outline0.3.6.31}{Returners}{Outline0.3}% 9
-\BOOKMARK [2][]{Outline0.4}{Salt-ssh}{}% 10
-\BOOKMARK [3][]{Outline0.4.1.32}{Roster}{Outline0.4}% 11
-\BOOKMARK [3][]{Outline0.4.2.33}{Autosign}{Outline0.4}% 12
-\BOOKMARK [2][]{Outline0.5}{Demo1 - States,grains,pillars,reactors,returners,modules}{}% 13
-\BOOKMARK [2][]{Outline0.6}{Demo2 - Salt ssh}{}% 14
-\BOOKMARK [2][]{Outline0.7}{Conclusion}{}% 15
+\BOOKMARK [2][]{Outline0.4}{Demo1 - States,grains,pillars,reactors,modules}{}% 4
+\BOOKMARK [2][]{Outline0.5}{Demo2 - Salt ssh}{}% 5
+\BOOKMARK [2][]{Outline0.6}{Conclusion}{}% 6
